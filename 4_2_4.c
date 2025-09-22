@@ -1,0 +1,18 @@
+#include <stdio.h>
+//倒序返回数字
+int main()
+{
+    int x;
+    scanf_s("%d", &x);
+    int digint;
+    int ret=0;
+    while (x > 0) {
+    digint = x % 10;//每一个整数除以10的余数都等于个位数上的数字
+    printf("digint=%d\n", digint);
+    ret = ret * 10 + digint;  //ret初始化为0所以第一次为个位数数字，第二次开始每次*10
+    printf("x=%d,digint=%d,ret=%d\n", x, digint, ret);
+    x /= 10;
+}
+    printf("%d",ret);
+    return 0;
+}
