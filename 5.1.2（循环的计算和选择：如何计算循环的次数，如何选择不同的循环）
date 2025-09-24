@@ -1,0 +1,26 @@
+#include <stdio.h>
+int main()
+{
+	
+	int i;
+	/*
+	for (i = 0; i < 5; i++) {
+		printf("\ni=%d\n", i);
+	}
+	该段代码i初始值为0，循环执行五次，最终i=5	*/
+
+	for (i = 1; i <= 5; i++) {
+		printf("\ni=%d\n", i);
+	}
+	//该段代码i初始值为1，循环执行五次，最终i=6(最终值是区别)
+	printf("\n最后i=%d\n", i);
+
+	/*
+	for循环和while循环是等价的。
+	*/
+    /*
+    总结：
+    1、如果有固定次数使用for
+    2、如果必须有一次循环使用do while
+    3、其他情况使用while
+    */
