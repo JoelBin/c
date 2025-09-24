@@ -1,0 +1,15 @@
+#include <stdio.h>
+//计算输入的整数个数：do while
+int main()
+{
+    int a;
+    int b = 0;
+    scanf_s("%d", &a);
+    do        //while与do while区别是do while至少一次循环，while可以一次都不做。
+    {
+        a /= 10;
+        b++;
+    } while (a>0);
+    printf("%d \n", b);
+    return 0;
+}
