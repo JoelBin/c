@@ -1,0 +1,14 @@
+#include <stdio.h>
+//计算输入的整数个数
+int main()
+{
+    int a;
+    int b = 0;
+    scanf_s("%d", &a);
+    while (a > 0) {  //循环检查
+        b++;
+        a /= 10;
+    }
+    printf("%d \n", b);
+    return 0;
+}
