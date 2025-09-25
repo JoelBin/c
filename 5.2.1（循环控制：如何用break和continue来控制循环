@@ -1,0 +1,27 @@
+#include <stdio.h>
+//5.2.1（循环控制：如何用break和continue来控制循环）
+//计算是否为素数。一个数可以被1以及它本身整除，不可以被其他整数相除时为素数。
+int main()
+{
+	printf("请输入一个数字，我们将计算它是否为素数\n");
+	int x;
+	int i;
+	int isprime = 1;   //x是素数 ？
+	scanf_s("%d", &x);
+	for (i = 2; i < x; i++) {		//i从2开始，因为除以1都可以整除，都是素数。小数点后为0，可以整除，如果小数点后不为0，不能被整除)
+		if (x % i == 0) {			//计算x/i是否有余数是否为0。计算余数为0，为素数，余数如果不为零，则不是素数。
+			isprime = 0;			//如果上一步不等于0，则执行这一步，设置isprime = 0代表不为素数并跳出循环。
+			//break;
+			continue;			//如果if结果为假，则执行if结构内语句，接着使用continue跳过后面的printf并继续下一次for循环，break不同的是会直接结束该for循环，执行下一步。
+		}
+		printf("%d\n", i);
+	}
+	if (isprime == 1) {
+		printf("%d是素数", x);
+	}
+	else
+	{
+		printf("%d不是素数", x);
+	}
+
+}
