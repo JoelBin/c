@@ -1,0 +1,17 @@
+#include <stdio.h>
+//前n项求和
+int main()
+{
+    int a;
+    scanf_s("%d", &a);
+    int b;
+    double sum = 0.0;
+    int sign = 1;      //计算 1/a -  1/a+1   + 1/a+2  -  1/a+3
+    for ( b = 1; b <= a; b++)
+    {
+        sum += 1.0 / b;
+        sign = -sign;       //计算 1/a -  1/a+1   + 1/a+2  -  1/a+3
+    }
+    printf("f(%d)=%f", a, sum);
+    return 0;
+}
