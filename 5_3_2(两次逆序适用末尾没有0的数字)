@@ -1,0 +1,30 @@
+#include <stdio.h>
+int main()
+{
+    int a = 13425;             
+	int t = 0;      //第一次逆序
+	do              
+	{
+		int d = a % 10;
+		t = t * 10 + d;
+		a /= 10;
+	} while (a>0);
+	printf("%d\n", t);
+
+	a = t;
+
+
+	do              //第二次逆序
+	{
+		int d = a % 10;
+		printf("%d",d);
+		if (a>=10)			//如果a>9，每个数字后面输出空格，最后一位不输出
+		{
+			printf(" ");
+		}
+		a /= 10;
+	} while (a>0);		
+	printf("\n");		//最后一行回车
+
+    return 0;
+}
