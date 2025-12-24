@@ -9,3 +9,4 @@ int main() {
 	return 0;
 }
 //gcc test.c -o test -m 32   //指定为32位
+//sizeof查看对应数据类型占用的字节大小，1字节=8bit
