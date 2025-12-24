@@ -1,0 +1,34 @@
+#include <stdio.h>
+//计算从m-n期间的素数个数以及他们的和
+int main() {
+	int m, n;
+	int i;
+	int cnt = 0;
+	int sum = 0;
+	printf("请输入m-n区间整数，将计算从m开始到n中间的素数的个数，以及他们的和.(中间以空格分开)\n");
+	scanf_s("%d %d", &m, &n);
+	if (m == 1) {
+		m = 2;
+	}
+	for (i = m; i <= n; i++) {     //从m开始，如果m<=n,每一轮循环i++
+		//判断i是否为素数
+		int isprime = 1;
+		int k;
+		for (k = 2; k < i - 1; k++) {
+			if (i % k == 0) {
+				isprime = 0;
+				break;
+				//核心（计算是否为素数）：
+				//从2开始，因为除以1都可以整除，都是素数。小数点后为0，可以整除，如果小数点后不为0，不能被整除)
+				//计算i/k是否有余数是否为0。计算余数为0，为素数，余数如果不为零，则不是素数。
+			}
+		}
+		if (isprime) {
+			cnt++;
+			sum+=i;
+			//如果 isprime标志仍为1（表示是素数），则素数计数器 cnt加1，并将该素数 i累加到总和 sum中。
+		}
+	}
+	printf("cnt=%d,sum=%d", cnt, sum);
+	return 0;
+}
