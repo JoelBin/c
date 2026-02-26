@@ -1,0 +1,28 @@
+#include <stdio.h>
+//初识数组,存储输入的每个数并记录到数组内并计算平均值，输出每个大于平均值的数。
+int main()
+{
+    int x;
+    double sum = 0;
+    int cnt = 0;
+    int number[100];        //定义数组为100个
+    scanf_s("%d", &x);
+    while (x != -1) {
+        number[cnt] = x;        //将每个输入的数字填补到对应的数组内
+        sum += x;
+        cnt++;
+        scanf_s("%d", &x);
+    }
+    if (cnt > 0) {
+        int i;
+        double average = sum / cnt;
+        for (i = 0; i < cnt; i++) {
+            if (number[i] > average) {          //便利数组内的数组，判断是否大于平均值average
+                printf("%d\n", number[i]);      //对于大于avg的数进行输出
+            }
+        }
+
+    }
+
+    return 0;
+}
