@@ -1,0 +1,12 @@
+#include <stdio.h>
+//9_1_1取地址运算
+int main(void) {
+	int a[10];
+	printf("%p\n", &a);
+	printf("%p\n", a);
+	printf("%p\n", &a[0]);
+	printf("%p\n", &a[1]);
+	//  &a=a=a[0];a[1]是a数组中第2个元素，与第一个元素（&a,a,a[0]相差4个字节）
+
+	return 0;
+}
