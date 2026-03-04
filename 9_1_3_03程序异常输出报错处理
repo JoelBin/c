@@ -1,0 +1,39 @@
+#include <stdio.h>
+//9_1_3_03程序异常输出报错处理
+int divide(int a, int b, int* result);
+int main(void) {
+	int a = 5;
+	int b = 2;
+	int c;
+	if (divide(a, b, &c)) {				//判断divide是否为0
+		printf(" % d / % d = % d", a, b, c);
+	}
+	return 0;
+}
+int divide(int a, int b, int* result) {
+	int ret = 1;
+	if (b == 0) {
+		ret = 0;
+	}else {
+		*result = a / b;
+	}
+	return ret;
+}
+/*
+代码功能概述
+这段代码的核心目的是安全地进行除法运算，并处理可能的异常（如除数为零）。它通过 divide函数实现：
+返回值：作为状态码（1表示成功，0表示失败）。
+指针参数：用于将计算结果“带回”给调用者（main函数）。
+if (divide(a, b, &c))逐行解析
+这行代码是程序逻辑的关键，其执行流程如下：
+函数调用与参数传递：
+程序调用 divide函数，传入三个实参：被除数 a(5)、除数 b(2)，以及变量 c的地址 &c。
+这里传递 &c（c的地址）是典型的指针传递（或称为按引用传递）。这使得 divide函数内部能够通过这个地址直接修改 main函数中的变量 c的值 。
+函数执行与条件判断：
+divide函数首先检查除数 b是否为0。在您的代码中，b为2，所以执行 else分支，进行整数除法 a / b（即 5 / 2，结果为2），并将结果2赋值给 *result（也就是 main函数中的变量 c）。
+然后，函数返回整数 1（ret的值）。
+if语句的条件判断：if语句的条件是函数调用 divide(a, b, &c)的返回值。在C语言中，if的条件表达式为非零时视为“真”（True），为零时视为“假”（False）。
+由于本次调用返回了 1（非零），所以 if的条件为“真”，程序会执行后面的 printf语句，输出结果。
+输出结果：
+printf(" % d / % d = % d", a, b, c);会输出：5 / 2 = 2。
+*/
