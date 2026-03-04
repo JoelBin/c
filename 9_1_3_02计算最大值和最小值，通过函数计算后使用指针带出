@@ -1,0 +1,23 @@
+#include <stdio.h>
+//9_1_3_02计算最大值和最小值，通过函数计算后使用指针带出
+void minmax(int a[], int len, int* min, int *max);
+int main(void) {
+	int a[] = { 1,2,3,4,5,6,7,8,9,12,13,14,16,17,21,23,55 };
+	int min, max;
+	minmax(a, sizeof(a) / sizeof(a[0]), &min, &max);	//执行minmax函数传入min和max的地址。
+	printf("min=%d,max=%d\n", min, max);
+	return 0;
+}
+void minmax(int a[], int len, int* min, int* max) {
+	int i;
+	*min = *max = a[0];		//初始化*min和*max的值
+	for (i = 1; i < len; i++) {
+		if (a[i] < *min) {
+			*min = a[i];
+		}
+		if (a[i] > *max) {
+			*max = a[i];
+		}
+	}
+	//a[0]=*min = *max，for循环从a的第一个单元开始（而不是第0个单元），循环运行计算，如果小于a[0]的值就替换，如果大于a[0]的值就替换，最终计算出最大值和最小值使用指针带出。
+}
