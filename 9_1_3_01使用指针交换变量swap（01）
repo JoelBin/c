@@ -1,0 +1,17 @@
+#include <stdio.h>
+//9_1_3使用指针交换变量swap
+void swap(int* k, int* j);
+int main() {
+	int a = 5;
+	int b = 6;
+	swap(&a, &b);
+	printf("a=%d,b=%d", a, b);
+	return 0;
+}
+void swap(int* k, int* j) {
+	int t = *k;
+	*k = *j;
+	*j = t;
+	//先将k的值给t，在将j的值给k，最后t的值给j，完成交换。
+	//j=t=k;k=j。从右到左看
+}
