@@ -1,0 +1,32 @@
+#include <stdio.h>
+//9_1_4在函数中传入的int a[]是什么？--》int a[]就是main函数中a数组的指针
+void minmax(int *a, int len, int* min, int* max);
+int main(void) {
+	int a[] = { 1,2,3,4,5,6,7,8,9,12,13,14,16,17,21,23,55 };
+	int min, max;
+	minmax(a, sizeof(a) / sizeof(a[0]), &min, &max);
+	printf("min=%d,max=%d\n", min, max);
+	return 0;
+}
+void minmax(int *a, int len, int* min, int* max) {		//在函数中传入的int a[]是什么？--》int a[]就是main函数中a数组的指针。数组变量是特殊的指针，可以当做数组一样使用。
+	int i;
+	*min = *max = a[0];		//初始化*min和*max的值
+	for (i = 1; i < len; i++) {
+		if (a[i] < *min) {
+			*min = a[i];
+		}
+		if (a[i] > *max) {
+			*max = a[i];
+		}
+	}
+}
+/*
+1、在函数中传入的int a[]是什么？
+	数组即指针。
+	int a[]就是main函数中a数组的指针。数组变量是特殊的指针，可以当做数组一样使用。
+2、数组是cost类型的指针，所以不能被赋值，形如：
+int b[]=a;			int b[]--->int * const b;
+b=a;
+如上是错的。
+int *q=a;是可以的
+*/
